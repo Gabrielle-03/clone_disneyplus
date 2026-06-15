@@ -1,16 +1,19 @@
 @use 'variaveis';
+@use 'sass:color';
 @use 'hero';
 @use 'shows';
 @use 'plans';
 @use 'available-devices';
 @use 'faq';
 @use 'footer';
+@use 'header';
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Inder, sans-serif;
+    list-style: none;
 }
 
 body {
@@ -59,16 +62,43 @@ body {
 }
 
 .button {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 60px;
     font-size: 18px;
     color: variaveis.$corTextoSegundario;
-    background-color: #6421ff;
+    background-color: variaveis.$corDeFundoBotaoPrimario;
     text-transform: uppercase;
     border-radius: 4px;
-    margin-top: 2vw;
-    margin-bottom: 8px;
+    text-decoration: none;
+    padding: 8px 14px;
+    letter-spacing: 1px;
+    border: 1px solid variaveis.$corDeFundoBotaoPrimario;
+
+    &:hover {
+            background-color: color.adjust(variaveis.$corDeFundoBotaoPrimario, $lightness: 3%);
+        }
+
+    &--secondary {
+        background-color: variaveis.$corDeFundoBotaoSegundario;
+        border-color: variaveis.$corDeFundoBotaoSegundario;
+
+        &:hover {
+            background-color: color.adjust(variaveis.$corDeFundoBotaoSegundario, $lightness: 3%);
+        }
+    }
+
+    &--dark {
+        background-color: rgba(variaveis.$corDeFundoBotaoDark, 0.8);
+        border-color: variaveis.$corTextoSegundario;
+
+        &:hover {
+            background-color: variaveis.$corTextoSegundario;
+            color: variaveis.$corDeFundo;
+        }
+    }
 }
 
 .image-text-section {
